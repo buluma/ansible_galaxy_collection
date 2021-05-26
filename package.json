@@ -5,7 +5,6 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "npm run test:unit",
-    // "test:unit": "jest --coverage",
     "test:e2e": "act -j test_deploy -s GALAXY_API_KEY='53c87bd8625c56c266904f5dc807f2c7dd0b47d0'",
     "build": "tsc",
     "dev": "tsc -w",
