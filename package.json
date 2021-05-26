@@ -5,8 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "npm run test:unit",
-    // "test:unit": "jest --coverage",
-    "test:e2e": "act -j test_deploy -s GALAXY_API_KEY='fakekey'",
+    "test:e2e": "act -j test_deploy -s GALAXY_API_KEY='53c87bd8625c56c266904f5dc807f2c7dd0b47d0'",
     "build": "tsc",
     "dev": "tsc -w",
     "format": "prettier --write **/*.ts",
@@ -26,7 +25,7 @@
   },
   "homepage": "https://github.com/buluma/ansible_galaxy_collection#readme",
   "dependencies": {
-    "@actions/core": "^1.2.7",
+    "@actions/core": "^1.3.0",
     "@actions/exec": "^1.0.4",
     "@actions/io": "^1.1.0",
     "class-validator": "^0.13.1",
