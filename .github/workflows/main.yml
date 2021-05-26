@@ -1,12 +1,6 @@
 name: Testing the Action
 
-'on':
-  pull_request:
-  push:
-    branches:
-      - main
-  schedule:
-    - cron: "10 7 * * 2"
+on: [pull_request]
 
 env:
   RUNNER_TEMP: /tmp
