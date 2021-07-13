@@ -2,7 +2,7 @@
 
 namespace: buluma
 name: test_resource_do_not_use
-version: 2.4.0
+version: 2.4.1
 readme: README.md
 authors:
   - Michael Buluma (@buluma) <dev@buluma.me.ke>
