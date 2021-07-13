@@ -74,7 +74,7 @@ jobs:
           collection_dir: 'fake_collection'
           # Should match version above
           galaxy_version: '${{ env.TEST_ARTIFACT_VERSION }}-build'
-          build: false
+          build: true
           publish: true
 
   snapshot:
