@@ -72,8 +72,8 @@ jobs:
           collection_dir: 'fake_collection'
           # Different from above version
           galaxy_version: '${{ env.TEST_ARTIFACT_VERSION }}-build'
-          build: true
-          publish: false
+          # build: true
+          # publish: false
 
       - name: Test the action - only publish
         uses: ./
@@ -82,8 +82,8 @@ jobs:
           collection_dir: 'fake_collection'
           # Should match version above
           galaxy_version: '${{ env.TEST_ARTIFACT_VERSION }}-build'
-          build: true
-          publish: true
+          # build: true
+          # publish: true
 
   snapshot:
     runs-on: ubuntu-latest

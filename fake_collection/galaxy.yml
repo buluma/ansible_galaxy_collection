@@ -5,7 +5,7 @@ name: test_resource_do_not_use
 version: 2.3.28
 readme: README.md
 authors:
-  - Michael Buluma Kalfus (@buluma) <dev@buluma.me.ke>
+  - Michael Buluma (@buluma) <dev@buluma.me.ke>
 description: This is a test collection used for running tests on https://github.com/buluma/ansible_galaxy_collection.
 license_file: LICENSE
 tags: []
