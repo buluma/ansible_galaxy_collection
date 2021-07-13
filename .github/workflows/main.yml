@@ -12,7 +12,7 @@ on:
 
 env:
   RUNNER_TEMP: /tmp
-  TEST_ARTIFACT_VERSION: 2.4.5
+  TEST_ARTIFACT_VERSION: 2.5.0
 
 jobs:
   local_tests:
