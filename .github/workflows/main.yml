@@ -12,7 +12,7 @@ on:
 
 env:
   RUNNER_TEMP: /tmp
-  TEST_ARTIFACT_VERSION: 2.4.1
+  TEST_ARTIFACT_VERSION: 2.4.2
 
 jobs:
   local_tests:
@@ -40,26 +40,26 @@ jobs:
       - name: Run tests
         run: npm test
 
-  # test_deploy:
-  #   runs-on: ubuntu-latest
+  test_deploy:
+    runs-on: ubuntu-latest
 
-  #   steps:
-  #     - uses: actions/checkout@v2.3.4
+    steps:
+      - uses: actions/checkout@v2.3.4
 
-  #     - name: Test the action
-  #       uses: ./
-  #       with:
-  #         api_key: '${{ secrets.GALAXY_API_KEY }}'
-  #         # Fake location that's a small amount of content
-  #         collection_dir: 'fake_collection'
+      - name: Test the action
+        uses: ./
+        with:
+          api_key: '${{ secrets.GALAXY_API_KEY }}'
+          # Fake location that's a small amount of content
+          collection_dir: 'fake_collection'
 
-  #     - name: Test the action with a custom version
-  #       uses: ./
-  #       with:
-  #         api_key: '${{ secrets.GALAXY_API_KEY }}'
-  #         collection_dir: 'fake_collection'
-  #         # Custom version
-  #         galaxy_version: '${{ env.TEST_ARTIFACT_VERSION }}-test'
+      - name: Test the action with a custom version
+        uses: ./
+        with:
+          api_key: '${{ secrets.GALAXY_API_KEY }}'
+          collection_dir: 'fake_collection'
+          # Custom version
+          galaxy_version: '${{ env.TEST_ARTIFACT_VERSION }}-test'
 
   test_build_then_publish:
     runs-on: ubuntu-latest
@@ -72,8 +72,8 @@ jobs:
           collection_dir: 'fake_collection'
           # Different from above version
           galaxy_version: '${{ env.TEST_ARTIFACT_VERSION }}-build'
-          # build: true
-          # publish: false
+          build: true
+          publish: false
 
       - name: Test the action - only publish
         uses: ./
@@ -82,8 +82,8 @@ jobs:
           collection_dir: 'fake_collection'
           # Should match version above
           galaxy_version: '${{ env.TEST_ARTIFACT_VERSION }}-build'
-          # build: true
-          # publish: true
+          build: true
+          publish: true
 
   snapshot:
     runs-on: ubuntu-latest
