@@ -12,7 +12,7 @@ on:
 
 env:
   RUNNER_TEMP: /tmp
-  TEST_ARTIFACT_VERSION: 0.5.3
+  TEST_ARTIFACT_VERSION: 2.5.0
 
 jobs:
   local_tests:
@@ -75,15 +75,15 @@ jobs:
           build: true
           publish: false
 
-      - name: Test the action - only publish
-        uses: ./
-        with:
-          api_key: '${{ secrets.GALAXY_API_KEY }}'
-          collection_dir: 'fake_collection'
-          # Should match version above
-          galaxy_version: '${{ env.TEST_ARTIFACT_VERSION }}-build'
-          build: true
-          publish: true
+      # - name: Test the action - only publish
+      #   uses: ./
+      #   with:
+      #     api_key: '${{ secrets.GALAXY_API_KEY }}'
+      #     collection_dir: 'fake_collection'
+      #     # Should match version above
+      #     galaxy_version: '${{ env.TEST_ARTIFACT_VERSION }}-build'
+      #     build: true
+      #     publish: true
 
   snapshot:
     runs-on: ubuntu-latest

@@ -1,5 +1,5 @@
 ---
-name: 'Deploy Ansible Galaxy Collection'
+name: 'Buluma - Deploy Ansible Galaxy Collection'
 description: 'Builds and deploys a Collection to Ansible Galaxy'
 author: 'Buluma <dev@buluma.me.ke>'
 inputs:
