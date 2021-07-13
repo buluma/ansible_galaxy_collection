@@ -100,4 +100,4 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ghcr.io/artis3n/ansible_galaxy_collection-testartifact:SNAPSHOT-${{ github.sha }}
+            ghcr.io/buluma/ansible_galaxy_collection-testartifact:SNAPSHOT-${{ github.sha }}
