@@ -1,4 +1,4 @@
-# ansible_galaxy_collection
+# Ansible Galaxy Collection
 
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/buluma/ansible_galaxy_collection/Testing%20the%20Action)](https://github.com/buluma/ansible_galaxy_collection/actions)
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/buluma/ansible_galaxy_collection)](https://github.com/buluma/ansible_galaxy_collection/releases)
@@ -105,7 +105,7 @@ Not the common way to invoke actions, but save ~3 minutes in your invocation by 
 
 ```yaml
 - name: Build and Deploy Collection
-  uses: docker://ghcr.io/buluma/ansible_galaxy_collection@v2.4.2
+  uses: docker://ghcr.io/buluma/ansible_galaxy_collection@v2.5.0
   with:
     api_key: '${{ secrets.GALAXY_API_KEY }}'
 ```
