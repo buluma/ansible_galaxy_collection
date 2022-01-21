@@ -1,7 +1,9 @@
 # ansible_galaxy_collection
 
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/buluma/ansible_galaxy_collection/Testing%20the%20Action)](https://github.com/artis3n/ansible_galaxy_collection/actions)
-[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/buluma/ansible_galaxy_collection)](https://github.com/artis3n/ansible_galaxy_collection/releases)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/buluma/ansible_galaxy_collection/Testing%20the%20Action)](https://github.com/buluma/ansible_galaxy_collection/actions) 
+[![Build and Push Container](https://github.com/buluma/ansible_galaxy_collection/actions/workflows/build.yml/badge.svg)](https://github.com/buluma/ansible_galaxy_collection/actions/workflows/build.yml) 
+[![Release](https://github.com/buluma/ansible_galaxy_collection/actions/workflows/release.yml/badge.svg)](https://github.com/buluma/ansible_galaxy_collection/actions/workflows/release.yml)
+[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/buluma/ansible_galaxy_collection)](https://github.com/buluma/ansible_galaxy_collection/releases)
 ![GitHub last commit](https://img.shields.io/github/last-commit/buluma/ansible_galaxy_collection)
 ![GitHub](https://img.shields.io/github/license/buluma/ansible_galaxy_collection)
 [![GitHub followers](https://img.shields.io/github/followers/buluma?style=social)](https://github.com/buluma/)
@@ -15,7 +17,7 @@ This action expects to be run from a repository with certain met conditions.
 1. The repository contains a valid Ansible Galaxy Collection, meaning it minimally contains a `galaxy.yml` file and a `README.md`.
 2. The repository has a top-level `meta` directory with the file `runtime.yml` minimally containing the key `requires_ansible`, which is [required by Ansible Galaxy](https://docs.ansible.com/ansible/3/dev_guide/developing_collections.html#meta-directory).
 
-An example workflow using this action can be found [here](https://github.com/artis3n/ansible-collection-github/blob/master/.github/workflows/deploy.yml) and in [the tests](.github/workflows/main.yml).
+An example workflow using this action can be found [here](https://github.com/buluma/ansible-collection-github/blob/master/.github/workflows/deploy.yml) and in [the tests](.github/workflows/main.yml).
 
 # Inputs
 
@@ -69,7 +71,7 @@ If you want to build a collection archive file but do **not** want to publish it
 
 The Action will create a collection archive file in the default `ansible-galaxy collection` format: `<namespace-from-galaxy-yml>-<name-from-galaxy-yml>-<semver-version>.tar.gz`.
 
-e.g. `artis3n-mycollection-1.0.0.tar.gz`
+e.g. `buluma-mycollection-1.0.0.tar.gz`
 
 ## build
 
