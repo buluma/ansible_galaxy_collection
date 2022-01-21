@@ -66,15 +66,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2.3.4
-      - name: Test the action - only build
-        uses: ./
-        with:
-          api_key: '${{ secrets.GALAXY_API_KEY }}'
-          collection_dir: 'fake_collection'
+      # - name: Test the action - only build
+       # uses: ./
+       # with:
+       #   api_key: '${{ secrets.GALAXY_API_KEY }}'
+       #   collection_dir: 'fake_collection'
           # Different from above version
-          galaxy_version: '${{ env.TEST_ARTIFACT_VERSION }}-build'
-          build: true
-          publish: false
+       #   galaxy_version: '${{ env.TEST_ARTIFACT_VERSION }}-build'
+       #   build: true
+       #   publish: false
 
       - name: Test the action - only publish
         uses: ./
