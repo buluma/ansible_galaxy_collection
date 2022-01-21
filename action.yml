@@ -1,5 +1,5 @@
 ---
-name: 'Deploy Ansible Galaxy Collection'
+name: 'Deploy My Ansible Galaxy Collection'
 description: 'Builds and deploys a Collection to Ansible Galaxy'
 author: 'buluma <me@buluma.co.ke>'
 inputs:
@@ -56,4 +56,4 @@ runs:
   image: Dockerfile
 branding:
   icon: 'box'
-  color: 'purple'
+  color: 'green'
