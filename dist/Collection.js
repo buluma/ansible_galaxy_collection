@@ -45,6 +45,16 @@ class Collection {
         return version || '';
     }
     /**
+     * Builds a Collection in preparation for submission to Ansible Galaxy.
+     * @param which Either which from @actions/io or an injected stub for testing
+     * @param exec Either exec from @actions/exec or an injected stub for testing
+     */
+    async build(which, exec) {
+        const galaxyCommandPath = await which('ansible-galaxy', true);
+        // If a custom directory is passed in, use that. Otherwise, do not specify a custom location.
+        return exec(`${galaxyCommandPath} collection build ${this.path}`);
+    }
+    /**
      * Publishes a Collection to Ansible Galaxy.
      * @param which Either which from @actions/io or an injected stub for testing
      * @param exec Either exec from @actions/exec or an injected stub for testing
@@ -52,25 +62,24 @@ class Collection {
     async publish(which, exec) {
         const galaxyCommandPath = await which('ansible-galaxy', true);
         // If a custom directory is passed in, use that. Otherwise, do not specify a custom location.
-        await exec(`${galaxyCommandPath} collection build ${this.path}`);
         return exec(`${galaxyCommandPath} collection publish ${this}.tar.gz --api-key=${this.apiKey}`);
     }
 }
 __decorate([
-    class_validator_1.IsNotEmpty(),
+    (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
 ], Collection.prototype, "namespace", void 0);
 __decorate([
-    class_validator_1.IsNotEmpty(),
+    (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
 ], Collection.prototype, "name", void 0);
 __decorate([
-    decorators_1.IsSemver({ message: '$value must be semver-compatible' }),
-    class_validator_1.IsNotEmpty(),
+    (0, decorators_1.IsSemver)({ message: '$value must be semver-compatible' }),
+    (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
 ], Collection.prototype, "version", void 0);
 __decorate([
-    class_validator_1.IsNotEmpty(),
+    (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
 ], Collection.prototype, "apiKey", void 0);
 exports.Collection = Collection;
