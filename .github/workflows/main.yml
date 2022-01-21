@@ -76,15 +76,15 @@ jobs:
           build: true
           publish: false
 
-      # - name: Test the action - only publish
-      #   uses: ./
-      #   with:
-      #     api_key: '${{ secrets.GALAXY_API_KEY }}'
-      #     collection_dir: 'fake_collection'
-      #     # Should match version above
-      #     galaxy_version: '${{ env.TEST_ARTIFACT_VERSION }}-build'
-      #     build: true
-      #     publish: true
+      - name: Test the action - only publish
+        uses: ./
+        with:
+          api_key: '${{ secrets.GALAXY_API_KEY }}'
+          collection_dir: 'fake_collection'
+          # Should match version above
+          galaxy_version: '${{ env.TEST_ARTIFACT_VERSION }}-build'
+          build: true
+          publish: true
 
  # snapshot:
  #   runs-on: ubuntu-latest
