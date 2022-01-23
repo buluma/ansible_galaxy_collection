@@ -2,6 +2,7 @@
 
 [![Build and Push Container](https://github.com/buluma/ansible_galaxy_collection/actions/workflows/build.yml/badge.svg)](https://github.com/buluma/ansible_galaxy_collection/actions/workflows/build.yml) 
 [![Release](https://github.com/buluma/ansible_galaxy_collection/actions/workflows/release.yml/badge.svg)](https://github.com/buluma/ansible_galaxy_collection/actions/workflows/release.yml)
+![Docker Pulls](https://img.shields.io/docker/pulls/buluma/ansible_galaxy_collection)
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/buluma/ansible_galaxy_collection)](https://github.com/buluma/ansible_galaxy_collection/releases)
 ![GitHub last commit](https://img.shields.io/github/last-commit/buluma/ansible_galaxy_collection)
 ![GitHub](https://img.shields.io/github/license/buluma/ansible_galaxy_collection)
