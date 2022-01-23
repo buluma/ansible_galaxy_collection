@@ -8,7 +8,7 @@ WORKDIR /app
 
 RUN apt-get update \
     && apt-get upgrade -y \
-    && apt-get install -y --no-install-recommends python3 python3-pip python3-setuptools python3-wheel \
+    && apt-get install -y --no-install-recommends apt-utils python3 python3-pip python3-setuptools python3-wheel \
     # Slim down layer size
     && apt-get autoremove -y \
     && apt-get autoclean -y \
