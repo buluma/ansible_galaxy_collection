@@ -1,12 +1,10 @@
 # ansible_galaxy_collection
 
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/buluma/ansible_galaxy_collection/Testing%20the%20Action)](https://github.com/buluma/ansible_galaxy_collection/actions) 
 [![Build and Push Container](https://github.com/buluma/ansible_galaxy_collection/actions/workflows/build.yml/badge.svg)](https://github.com/buluma/ansible_galaxy_collection/actions/workflows/build.yml) 
 [![Release](https://github.com/buluma/ansible_galaxy_collection/actions/workflows/release.yml/badge.svg)](https://github.com/buluma/ansible_galaxy_collection/actions/workflows/release.yml)
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/buluma/ansible_galaxy_collection)](https://github.com/buluma/ansible_galaxy_collection/releases)
 ![GitHub last commit](https://img.shields.io/github/last-commit/buluma/ansible_galaxy_collection)
 ![GitHub](https://img.shields.io/github/license/buluma/ansible_galaxy_collection)
-[![GitHub followers](https://img.shields.io/github/followers/buluma?style=social)](https://github.com/buluma/)
 
 Deploy a Collection to Ansible Galaxy.
 
