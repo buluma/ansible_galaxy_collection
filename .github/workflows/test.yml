@@ -1,5 +1,5 @@
 ---
-name: Build and Push Container
+name: Test - Build and Push Container
 
 on:
   pull_request:
