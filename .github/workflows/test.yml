@@ -9,7 +9,9 @@ on:
   schedule:
     - cron: '23 * * * *'
   workflow_dispatch:
-
+  
+jobs:
+  # Test the image builds and works correctly.
   # If on master branch, build and release image.
   release:
     name: Release
