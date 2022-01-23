@@ -15,8 +15,8 @@ RUN apt-get update \
     # Remove apt-get cache from the layer to reduce container size
     && rm -rf /var/lib/apt/lists/*
 
-RUN  npm install -g npm \
-     && python3 -m pip install --no-cache-dir --upgrade pip
+RUN npm install -g npm@8.3.2 \
+    && python3 -m pip install --no-cache-dir --upgrade pip
 
 COPY requirements.txt ./
 RUN python3 -m pip install --no-cache-dir -r requirements.txt
