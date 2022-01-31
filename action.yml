@@ -1,5 +1,5 @@
 ---
-name: 'Deploy My Ansible Galaxy Collection'
+name: 'Publish Ansible Collection to Galaxy'
 description: 'Builds and deploys a Collection to Ansible Galaxy'
 author: 'buluma <me@buluma.co.ke>'
 inputs:
