@@ -8,15 +8,15 @@ WORKDIR /app
 
 RUN apt-get update \
     && apt-get upgrade -y \
-    && apt-get install -y --no-install-recommends python3 python3-pip python3-setuptools python3-wheel \
+    && apt-get install -y --no-install-recommends apt-utils python3 python3-pip python3-setuptools python3-wheel \
     # Slim down layer size
     && apt-get autoremove -y \
     && apt-get autoclean -y \
     # Remove apt-get cache from the layer to reduce container size
     && rm -rf /var/lib/apt/lists/*
 
-RUN  npm install -g npm \
-     && python3 -m pip install --no-cache-dir --upgrade pip
+RUN npm install -g npm@8.3.2 \
+    && python3 -m pip install --no-cache-dir --upgrade pip
 
 COPY requirements.txt ./
 RUN python3 -m pip install --no-cache-dir -r requirements.txt
