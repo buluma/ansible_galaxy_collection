@@ -1,4 +1,4 @@
-# ansible_galaxy_collection
+# Push Ansible Collection to Galaxy
 
 [![Build and Push Container](https://github.com/buluma/ansible_galaxy_collection/actions/workflows/build.yml/badge.svg)](https://github.com/buluma/ansible_galaxy_collection/actions/workflows/build.yml) 
 [![Release](https://github.com/buluma/ansible_galaxy_collection/actions/workflows/release.yml/badge.svg)](https://github.com/buluma/ansible_galaxy_collection/actions/workflows/release.yml)
