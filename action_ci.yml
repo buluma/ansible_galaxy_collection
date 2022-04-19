@@ -49,8 +49,7 @@ inputs:
     default: 'galaxy.yml'
 runs:
   using: 'docker'
-  # Takes ~3 minutes to build the container so speed up consumer invocations by using pre-built image
-  image: docker://ghcr.io/buluma/ansible_galaxy_collection:v2.7.1
+  image: Dockerfile
 branding:
   icon: 'box'
-  color: 'green'
+  color: 'purple'

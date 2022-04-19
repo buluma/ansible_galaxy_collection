@@ -1,11 +1,11 @@
-# Push Ansible Collection to Galaxy
+# ansible_galaxy_collection
 
-[![Build and Push Container](https://github.com/buluma/ansible_galaxy_collection/actions/workflows/build.yml/badge.svg)](https://github.com/buluma/ansible_galaxy_collection/actions/workflows/build.yml) 
-[![Release](https://github.com/buluma/ansible_galaxy_collection/actions/workflows/release.yml/badge.svg)](https://github.com/buluma/ansible_galaxy_collection/actions/workflows/release.yml)
-![Docker Pulls](https://img.shields.io/docker/pulls/buluma/ansible_galaxy_collection)
-[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/buluma/ansible_galaxy_collection)](https://github.com/buluma/ansible_galaxy_collection/releases)
-![GitHub last commit](https://img.shields.io/github/last-commit/buluma/ansible_galaxy_collection)
-![GitHub](https://img.shields.io/github/license/buluma/ansible_galaxy_collection)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/artis3n/ansible_galaxy_collection/Testing%20the%20Action)](https://github.com/artis3n/ansible_galaxy_collection/actions)
+[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/artis3n/ansible_galaxy_collection)](https://github.com/artis3n/ansible_galaxy_collection/releases)
+![GitHub last commit](https://img.shields.io/github/last-commit/artis3n/ansible_galaxy_collection)
+![GitHub](https://img.shields.io/github/license/artis3n/ansible_galaxy_collection)
+[![GitHub followers](https://img.shields.io/github/followers/artis3n?style=social)](https://github.com/artis3n/)
+[![Twitter Follow](https://img.shields.io/twitter/follow/artis3n?style=social)](https://twitter.com/Artis3n)
 
 Deploy a Collection to Ansible Galaxy.
 
@@ -16,7 +16,7 @@ This action expects to be run from a repository with certain met conditions.
 1. The repository contains a valid Ansible Galaxy Collection, meaning it minimally contains a `galaxy.yml` file and a `README.md`.
 2. The repository has a top-level `meta` directory with the file `runtime.yml` minimally containing the key `requires_ansible`, which is [required by Ansible Galaxy](https://docs.ansible.com/ansible/3/dev_guide/developing_collections.html#meta-directory).
 
-An example workflow using this action can be found [here](https://github.com/buluma/ansible-collection-github/blob/master/.github/workflows/deploy.yml) and in [the tests](.github/workflows/main.yml).
+An example workflow using this action can be found [here](https://github.com/artis3n/ansible-collection-github/blob/master/.github/workflows/deploy.yml) and in [the tests](.github/workflows/main.yml).
 
 # Inputs
 
@@ -70,7 +70,7 @@ If you want to build a collection archive file but do **not** want to publish it
 
 The Action will create a collection archive file in the default `ansible-galaxy collection` format: `<namespace-from-galaxy-yml>-<name-from-galaxy-yml>-<semver-version>.tar.gz`.
 
-e.g. `buluma-mycollection-1.0.0.tar.gz`
+e.g. `artis3n-mycollection-1.0.0.tar.gz`
 
 ## build
 
@@ -86,7 +86,7 @@ By default, that is the project root.
 
 The Action also expects the built archive to be named in the default `ansible-galaxy collection` format: `<namespace-from-galaxy-yml>-<name-from-galaxy-yml>-<semver-version>.tar.gz`.
 
-e.g. `buluma-mycollection-1.0.0.tar.gz`
+e.g. `artis3n-mycollection-1.0.0.tar.gz`
 
 ## galaxy_config_file (Deprecated)
 
@@ -102,7 +102,7 @@ Default usage:
 
 ```yaml
 - name: Build and Deploy Collection
-  uses: buluma/ansible_galaxy_collection@v2
+  uses: artis3n/ansible_galaxy_collection@v2
   with:
     api_key: '${{ secrets.GALAXY_API_KEY }}'
 ```
@@ -114,7 +114,7 @@ Pass in `galaxy.yml` version as an input parameter:
   run: echo "RELEASE_VERSION=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
 
 - name: Injecting a dynamic Collection version
-  uses: buluma/ansible_galaxy_collection@v2
+  uses: artis3n/ansible_galaxy_collection@v2
   with:
     api_key: '${{ secrets.GALAXY_API_KEY }}'
     galaxy_version: '${{ env.RELEASE_VERSION }}'
@@ -124,7 +124,7 @@ If your Collection root is not in your repo root:
 
 ```yaml
 - name: When the Collection is not in the project root
-  uses: buluma/ansible_galaxy_collection@v2
+  uses: artis3n/ansible_galaxy_collection@v2
   with:
     api_key: '${{ secrets.GALAXY_API_KEY }}'
     collection_dir: 'src/my_collection'
@@ -134,7 +134,7 @@ To build a collection **without** publishing it to Ansible Galaxy:
 
 ```yaml
 - name: Build Collection
-  uses: buluma/ansible_galaxy_collection@v2
+  uses: artis3n/ansible_galaxy_collection@v2
   with:
     api_key: '${{ secrets.GALAXY_API_KEY }}'
     publish: false
@@ -144,23 +144,10 @@ If you already have a collection archive built and merely want to publish it to 
 
 ```yaml
 - name: Publish Collection
-  uses: buluma/ansible_galaxy_collection@v2
+  uses: artis3n/ansible_galaxy_collection@v2
   with:
     api_key: '${{ secrets.GALAXY_API_KEY }}'
     build: false
-```
-
-## Speed Up Runtime With The Docker Image
-
-Not the common way to invoke actions, but save ~3 minutes in your invocation by using the built image instead of building the image from source during your action invocation. It takes 2 minutes alone just to build ansible from its wheel.
-
-If you want to use the Docker container, use the syntax below. You will need to pin to a specific tag, not a general value like `v2`.
-
-```yaml
-- name: Build and Deploy Collection
-  uses: docker://ghcr.io/buluma/ansible_galaxy_collection@v2.4.2
-  with:
-    api_key: '${{ secrets.GALAXY_API_KEY }}'
 ```
 
 # Exit Codes
