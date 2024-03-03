@@ -1,54 +1,37 @@
----
 version: 2
 updates:
   - package-ecosystem: npm
     directory: '/'
     schedule:
       interval: monthly
-    reviewers:
-      - buluma
-    assignees:
-      - buluma
-    commit-message:
-      prefix: fix
-      prefix-development: chore
-      include: scope
+    groups:
+      all:
+        patterns:
+          - "*"
 
   - package-ecosystem: github-actions
     directory: '/'
     schedule:
-      interval: daily
-    reviewers:
-      - buluma
-    assignees:
-      - buluma
-    commit-message:
-      prefix: fix
-      prefix-development: chore
-      include: scope
+      interval: monthly
+    groups:
+      all:
+        patterns:
+          - "*"
 
   - package-ecosystem: docker
     directory: '/'
     schedule:
       interval: monthly
-    reviewers:
-      - buluma
-    assignees:
-      - buluma
-    commit-message:
-      prefix: fix
-      prefix-development: chore
-      include: scope
+    groups:
+      all:
+        patterns:
+          - "*"
 
   - package-ecosystem: pip
     directory: '/'
     schedule:
       interval: monthly
-    reviewers:
-      - buluma
-    assignees:
-      - buluma
-    commit-message:
-      prefix: fix
-      prefix-development: chore
-      include: scope
+    groups:
+      all:
+        patterns:
+          - "*"
