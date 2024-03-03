@@ -1,9 +1,10 @@
 version: 2
 updates:
+
   - package-ecosystem: npm
     directory: '/'
     schedule:
-      interval: monthly
+      interval: weekly
     groups:
       all:
         patterns:
@@ -12,7 +13,7 @@ updates:
   - package-ecosystem: github-actions
     directory: '/'
     schedule:
-      interval: monthly
+      interval: weekly
     groups:
       all:
         patterns:
@@ -21,7 +22,7 @@ updates:
   - package-ecosystem: docker
     directory: '/'
     schedule:
-      interval: monthly
+      interval: weekly
     groups:
       all:
         patterns:
@@ -30,7 +31,7 @@ updates:
   - package-ecosystem: pip
     directory: '/'
     schedule:
-      interval: monthly
+      interval: weekly
     groups:
       all:
         patterns:
