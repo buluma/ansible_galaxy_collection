@@ -1,8 +1,12 @@
 name: Security Scans
 
 on:
-  - push
-  - release
+  push:
+    branches: [master, protected]
+  pull_request:
+    branches: [master]
+  schedule:
+    - cron: '20 14 * * 1'
 
 jobs:
   snyk-deps:
