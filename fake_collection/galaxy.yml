@@ -2,10 +2,10 @@
 
 namespace: buluma
 name: test_resource_do_not_use
-version: 2.7.1
+version: 2.10.6
 readme: README.md
 authors:
-  - Michael Buluma (@buluma) <me@buluma.co.ke>
+  - Shadow Walker (@buluma) <shadowwalker.ke@gmail.com>
 description: This is a test collection used for running tests on https://github.com/buluma/ansible_galaxy_collection.
 license_file: LICENSE
 tags: []
