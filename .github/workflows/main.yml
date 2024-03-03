@@ -8,8 +8,6 @@ env:
   RUNNER_TEMP: /tmp
   TEST_ARTIFACT_VERSION: 0.7.1
 
-workflow_dispatch:
-
 jobs:
   local_tests:
     runs-on: ubuntu-latest
