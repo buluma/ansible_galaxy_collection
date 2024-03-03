@@ -65,6 +65,7 @@ class Collection {
         return exec(`${galaxyCommandPath} collection publish ${this}.tar.gz --api-key=${this.apiKey}`);
     }
 }
+exports.Collection = Collection;
 __decorate([
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
@@ -82,4 +83,3 @@ __decorate([
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
 ], Collection.prototype, "apiKey", void 0);
-exports.Collection = Collection;
