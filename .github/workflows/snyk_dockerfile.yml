@@ -23,6 +23,7 @@ jobs:
         json: true
         sarif: true
     - name: Upload result to GitHub Code Scanning
+      continue-on-error: true
       uses: github/codeql-action/upload-sarif@v3
       with:
         sarif_file: snyk.sarif
