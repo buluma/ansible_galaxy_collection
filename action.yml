@@ -1,11 +1,12 @@
 ---
 name: 'Publish Ansible Collection to Galaxy'
 description: 'Builds and deploys a Collection to Ansible Galaxy'
-author: 'buluma <me@buluma.co.ke>'
+author: 'buluma <shadowwalker.ke@gmail.com>'
 inputs:
   api_key:
     description: |
       Ansible Galaxy API key. This should be stored in a Secret on Github.
+
       See https://help.github.com/en/github/automating-your-workflow-with-github-actions/virtual-environments-for-github-actions#creating-and-using-secrets-encrypted-variables.
     required: true
   collection_dir:
@@ -41,16 +42,19 @@ inputs:
   galaxy_config_file:
     description: |
       DEPRECATED.
+
       A collection must have a galaxy.yml file that contains the necessary information to build a
       collection artifact.
+
       Defaults to "galaxy.yml" in the `collection_dir`, which is by default the project root.
+
       This parameter is deprecated as Ansible Galaxy requires the file to be named `galaxy.yml` and to exist in the root of your Collection. Use `collection_dir` to specify a non-root directory for your Collection.
     required: false
     default: 'galaxy.yml'
 runs:
   using: 'docker'
   # Takes ~3 minutes to build the container so speed up consumer invocations by using pre-built image
-  image: docker://ghcr.io/buluma/ansible_galaxy_collection:v2.7.1
+  image: docker://ghcr.io/buluma/ansible_galaxy_collection:v2.10.6
 branding:
   icon: 'box'
   color: 'green'
