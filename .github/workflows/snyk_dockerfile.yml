@@ -12,7 +12,6 @@ jobs:
       # In this case we want to upload the issues to GitHub Code Scanning
       continue-on-error: true
       uses: snyk/actions/docker@master
-      continue-on-error: true
       env:
         # In order to use the Snyk Action you will need to have a Snyk API token.
         # More details in https://github.com/snyk/actions#getting-your-snyk-token
@@ -21,6 +20,8 @@ jobs:
       with:
         image: buluma/ansible_galaxy_collection
         args: --file=Dockerfile
+        json: true
+        sarif: true
     - name: Upload result to GitHub Code Scanning
       uses: github/codeql-action/upload-sarif@v3
       with:
