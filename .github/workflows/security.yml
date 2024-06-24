@@ -13,7 +13,7 @@ jobs:
   snyk-deps:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.1.1
+      - uses: actions/checkout@v4
 
       - uses: actions/setup-python@v5
         with:
@@ -45,7 +45,7 @@ jobs:
   snyk-code:
     runs-on: ubuntu-latest
     steps:
-        - uses: actions/checkout@v4.1.1
+        - uses: actions/checkout@v4
 
         - name: Install Snyk
           uses: snyk/actions/setup@master
@@ -64,18 +64,18 @@ jobs:
   snyk-container:
     runs-on: ubuntu-latest
     steps:
-        - uses: actions/checkout@v4.1.1
+        - uses: actions/checkout@v4
 
         - name: Install Snyk
           uses: snyk/actions/setup@master
 
         - name: Set up Docker Buildx
-          uses: docker/setup-buildx-action@v3.1.0
+          uses: docker/setup-buildx-action@v3
           with:
             install: true
 
         - name: Build container
-          uses: docker/build-push-action@v5.1.0
+          uses: docker/build-push-action@v6
           with:
             context: .
             platforms: linux/amd64
