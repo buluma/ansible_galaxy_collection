@@ -13,9 +13,9 @@ jobs:
   snyk-deps:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.1.1
+      - uses: actions/checkout@v6
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           cache: 'pip'
 
@@ -32,7 +32,7 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
       - name: Upload dependency results to GitHub Code Scanning
-        uses: github/codeql-action/upload-sarif@v3
+        uses: github/codeql-action/upload-sarif@v4
         with:
           sarif_file: snyk.sarif
 
@@ -45,7 +45,7 @@ jobs:
   snyk-code:
     runs-on: ubuntu-latest
     steps:
-        - uses: actions/checkout@v4.1.1
+        - uses: actions/checkout@v6
 
         - name: Install Snyk
           uses: snyk/actions/setup@master
@@ -57,25 +57,25 @@ jobs:
             SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
         - name: Upload dependency results to GitHub Code Scanning
-          uses: github/codeql-action/upload-sarif@v3
+          uses: github/codeql-action/upload-sarif@v4
           with:
             sarif_file: snyk-code.sarif
 
   snyk-container:
     runs-on: ubuntu-latest
     steps:
-        - uses: actions/checkout@v4.1.1
+        - uses: actions/checkout@v6
 
         - name: Install Snyk
           uses: snyk/actions/setup@master
 
         - name: Set up Docker Buildx
-          uses: docker/setup-buildx-action@v3.1.0
+          uses: docker/setup-buildx-action@v3
           with:
             install: true
 
         - name: Build container
-          uses: docker/build-push-action@v5.1.0
+          uses: docker/build-push-action@v6
           with:
             context: .
             platforms: linux/amd64
@@ -90,7 +90,7 @@ jobs:
             SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
         - name: Upload dependency results to GitHub Code Scanning
-          uses: github/codeql-action/upload-sarif@v3
+          uses: github/codeql-action/upload-sarif@v4
           with:
             sarif_file: snyk-container.sarif
 
