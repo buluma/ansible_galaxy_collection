@@ -1,4 +1,4 @@
-FROM node:25.2.1-trixie-slim AS builder
+FROM node:25.3.0-trixie-slim AS builder
 
 WORKDIR /app
 COPY package*.json ./
@@ -6,7 +6,7 @@ RUN npm ci
 COPY . ./
 RUN npm run build
 
-FROM node:25.2.1-trixie-slim AS runner
+FROM node:25.3.0-trixie-slim AS runner
 
 # Required for python inside Docker containers
 ENV LC_ALL C.UTF-8
