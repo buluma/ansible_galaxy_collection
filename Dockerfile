@@ -21,8 +21,7 @@ RUN apt-get update \
     # Remove apt-get cache from the layer to reduce container size
     && rm -rf /var/lib/apt/lists/*
 
-RUN  npm install -g npm \
-     && python3 -m pip install --no-cache-dir --upgrade --break-system-packages pip
+RUN npm install -g npm
 
 WORKDIR /app
 
