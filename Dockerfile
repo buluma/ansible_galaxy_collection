@@ -1,4 +1,4 @@
-FROM node:20-slim AS builder
+FROM node:26.7.0-trixie-slim AS builder
 
 WORKDIR /app
 COPY package*.json ./
@@ -6,11 +6,11 @@ RUN npm ci
 COPY . ./
 RUN npm run build
 
-FROM node:20-slim AS runner
+FROM node:26.7.0-trixie-slim AS runner
 
 # Required for python inside Docker containers
-ENV LC_ALL C.UTF-8
-ENV LANG C.UTF-8
+ENV LC_ALL=C.UTF-8
+ENV LANG=C.UTF-8
 
 RUN apt-get update \
     && apt-get upgrade -y \
@@ -21,8 +21,7 @@ RUN apt-get update \
     # Remove apt-get cache from the layer to reduce container size
     && rm -rf /var/lib/apt/lists/*
 
-RUN  npm install -g npm \
-     && python3 -m pip install --no-cache-dir --upgrade --break-system-packages pip
+RUN npm install -g npm
 
 WORKDIR /app
 

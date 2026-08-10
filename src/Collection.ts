@@ -1,5 +1,5 @@
 import { IsNotEmpty } from 'class-validator';
-import { ExecOptions } from '@actions/exec/lib/interfaces';
+import { ExecOptions } from '@actions/exec';
 
 import { CollectionInput } from './types';
 import { IsSemver } from './decorators';

@@ -4,7 +4,7 @@ jobs:
   snyk:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v6
     - name: Build a Docker image
       run: docker build -t buluma/ansible_galaxy_collection .
     - name: Run Snyk to check Docker image for vulnerabilities
@@ -22,8 +22,16 @@ jobs:
         args: --file=Dockerfile
         json: true
         sarif: true
+    # Snyk emits one SARIF "run" per image layer, which can exceed
+    # GitHub Code Scanning's 20-runs-per-file limit. Merge all runs'
+    # results into a single run before upload.
+    - name: Merge SARIF runs
+      run: |
+        jq '. as $in | .runs = [($in.runs[0] // {tool:{driver:{name:"Snyk Container"}}}) + {results: [$in.runs[].results[]?]}]' \
+          snyk.sarif > snyk-merged.sarif
+        mv snyk-merged.sarif snyk.sarif
     - name: Upload result to GitHub Code Scanning
       continue-on-error: true
-      uses: github/codeql-action/upload-sarif@v3
+      uses: github/codeql-action/upload-sarif@v4
       with:
         sarif_file: snyk.sarif
