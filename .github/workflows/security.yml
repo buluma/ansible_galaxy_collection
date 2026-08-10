@@ -13,9 +13,9 @@ jobs:
   snyk-deps:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.13'
           cache: 'pip'
@@ -46,7 +46,7 @@ jobs:
   snyk-code:
     runs-on: ubuntu-latest
     steps:
-        - uses: actions/checkout@v6
+        - uses: actions/checkout@v7
 
         - name: Install Snyk
           uses: snyk/actions/setup@master
@@ -65,7 +65,7 @@ jobs:
   snyk-container:
     runs-on: ubuntu-latest
     steps:
-        - uses: actions/checkout@v6
+        - uses: actions/checkout@v7
 
         - name: Install Snyk
           uses: snyk/actions/setup@master
