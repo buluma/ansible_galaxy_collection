@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.IsSemver = void 0;
+exports.IsSemver = IsSemver;
 const class_validator_1 = require("class-validator");
 const semver_1 = require("semver");
 function IsSemver(validationOptions) {
@@ -20,4 +20,3 @@ function IsSemver(validationOptions) {
         });
     };
 }
-exports.IsSemver = IsSemver;

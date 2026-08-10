@@ -1,0 +1,3 @@
+# dist/ is compiled tsc output, not source - don't lint it.
+excluded_files:
+  - "dist/**/*"

@@ -17,6 +17,7 @@ jobs:
 
       - uses: actions/setup-python@v6
         with:
+          python-version: '3.13'
           cache: 'pip'
 
       # Snyk needs the Python packages to be installed
@@ -71,8 +72,6 @@ jobs:
 
         - name: Set up Docker Buildx
           uses: docker/setup-buildx-action@v4
-          with:
-            install: true
 
         - name: Build container
           uses: docker/build-push-action@v7
@@ -88,6 +87,15 @@ jobs:
           continue-on-error: true
           env:
             SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
+        # Snyk emits one SARIF "run" per image layer, which can exceed
+        # GitHub Code Scanning's 20-runs-per-file limit. Merge all runs'
+        # results into a single run before upload.
+        - name: Merge SARIF runs
+          run: |
+            jq '. as $in | .runs = [($in.runs[0] // {tool:{driver:{name:"Snyk Container"}}}) + {results: [$in.runs[].results[]?]}]' \
+              snyk-container.sarif > snyk-container-merged.sarif
+            mv snyk-container-merged.sarif snyk-container.sarif
 
         - name: Upload dependency results to GitHub Code Scanning
           uses: github/codeql-action/upload-sarif@v4
