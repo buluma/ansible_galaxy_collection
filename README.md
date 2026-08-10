@@ -1,6 +1,6 @@
 # ansible_galaxy_collection
 
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/buluma/ansible_galaxy_collection/Testing%20the%20Action)](https://github.com/buluma/ansible_galaxy_collection/actions)
+[![Testing the Action](https://github.com/buluma/ansible_galaxy_collection/actions/workflows/main.yml/badge.svg)](https://github.com/buluma/ansible_galaxy_collection/actions/workflows/main.yml)
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/buluma/ansible_galaxy_collection)](https://github.com/buluma/ansible_galaxy_collection/releases)
 ![GitHub last commit](https://img.shields.io/github/last-commit/buluma/ansible_galaxy_collection)
 ![GitHub](https://img.shields.io/github/license/buluma/ansible_galaxy_collection)
